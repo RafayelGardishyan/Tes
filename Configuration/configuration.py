@@ -11,7 +11,7 @@ class ConfigurationWindow:
             f.write(data)
         with open('Configuration/data/name.txt', 'w+') as f:
             f.write(data2)
-        with open('Configuration/data/configured.log', 'w+') as f:
+        with open('Configuration/data/configured.txt', 'w+') as f:
             f.write('true')
 
     def __init__(self):
