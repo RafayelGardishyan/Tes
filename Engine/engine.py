@@ -4,7 +4,7 @@ import speech_recognition as sr
 import datetime as dt
 from gtts import gTTS
 from playsound import playsound
-import os
+import random as r
 import pyowm
 import json
 import urllib3
@@ -12,13 +12,17 @@ import urllib3
 class Assistant:
 
 
+    alarmtime = open('Configuration/data/time.txt', 'r+').read()
+    # alarmtime = 18
+    name = open('Configuration/data/name.txt', 'r+').read()
+    # name = 'Rafayel'
     count = 0
 
     def get_responses(self):
         return {
             'hello': {self.speak: 'Hi'},
             'hi': {self.speak: 'Hello'},
-            'how are you': {self.speak: 'Very well!'},
+            'how are you': {self.speak: r.choice(['Very well!', 'Good', 'Same as before', 'Can be better', 'Very bad', 'I am very good'])},
             'what is your name': {self.speak: 'My name is RafAssistant'},
             'what is your age': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
             'how old are you': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
@@ -38,8 +42,24 @@ class Assistant:
             'tell me a joke': {self.speak: 'If you understand English, press 1. If you do not understand English, press 2.'},
             'job': {self.speak: 'What would you like to add to your task list?', self.add_task: 'Jobs'},
             'get jobs': {self.speak: 'Here are your tasks!', self.get_tasks: 'Jobs'},
-            'delete job': {self.speak: 'What is the name of the task you want to delete?', self.delete_task: 'Jobs'}
+            'delete job': {self.speak: 'What is the name of the task you want to delete?', self.delete_task: 'Jobs'},
+            'goodnight': {self.speak: 'Good night!', self.good_night: 'Alarm is set for ' + str(self.alarmtime) + ' o\'clock'},
+            'good night': {self.speak: 'Good night!', self.good_night: 'Alarm is set for ' + str(self.alarmtime) + ' o\'clock'},
+            'thanks': {self.speak: 'I\'m always happy to help you'},
+            'ok': {self.speak: 'I\'m always happy to help you'}
         }
+
+    def good_night(self, phrase):
+        self.speak(phrase)
+        alarm = True
+        while alarm:
+            time = dt.datetime.now()
+            if time.hour != self.alarmtime:
+                pass
+            else:
+                playsound('data/alarm/alarmsound.mp3')
+                if self.record() == 'go':
+                    alarm = False
 
     def speak(self, phrase):
         tts = gTTS(text=phrase, lang='en')
@@ -147,5 +167,6 @@ class Assistant:
 
 
     def mainloop(self):
+        self.speak('Hello, ' + self.name)
         while True:
             self.look_for_answer(self.record(), self.get_responses())
