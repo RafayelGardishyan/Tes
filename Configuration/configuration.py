@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.messagebox
 
 class ConfigurationWindow:
 
@@ -13,6 +14,11 @@ class ConfigurationWindow:
             f.write(data2)
         with open('Configuration/data/configured.txt', 'w+') as f:
             f.write('true')
+
+        tkinter.messagebox._show('Success', 'Your data is successfully stored in the database! Please restart the program.')
+        quit()
+
+
 
     def __init__(self):
         self.root = Tk()

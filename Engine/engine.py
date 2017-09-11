@@ -7,6 +7,7 @@ from playsound import playsound
 import random as r
 import pyowm
 import json
+import calendar
 import urllib3
 
 class Assistant:
@@ -27,7 +28,11 @@ class Assistant:
             'what is your age': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
             'how old are you': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
             'what is today\'s date': {
-                self.speak: 'Today is ' + str(dt.date.today().day) + '.' + str(dt.date.today().month) + '.' + str(
+                self.speak: 'Today is ' + self.get_weekday() + ' ' + str(dt.date.today().day) + '.' + str(dt.date.today().month) + '.' + str(
+                    dt.date.today().year) + '.'},
+            'today': {
+                self.speak: 'Today is ' + self.get_weekday() + ' ' + str(dt.date.today().day) + '.' + str(
+                    dt.date.today().month) + '.' + str(
                     dt.date.today().year) + '.'},
             'bye bye': {self.speak: 'Bye-Bye!',
                         self.exit_app: 'None'},
@@ -46,8 +51,26 @@ class Assistant:
             'goodnight': {self.speak: 'Good night!', self.good_night: 'Alarm is set for ' + str(self.alarmtime) + ' o\'clock'},
             'good night': {self.speak: 'Good night!', self.good_night: 'Alarm is set for ' + str(self.alarmtime) + ' o\'clock'},
             'thanks': {self.speak: 'I\'m always happy to help you'},
-            'ok': {self.speak: 'I\'m always happy to help you'}
+            'ok': {self.speak: 'I\'m always happy to help you'},
+            'do you play Minecraft': {self.speak: 'No, it is too dificult for me'}
         }
+
+    def get_weekday(self):
+        if calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 0:
+            return 'Monday'
+        elif calendar.weekday(dt.date.today()) == 1:
+            return 'Tuesday'
+        elif calendar.weekday(dt.date.today()) == 2:
+            return "Wednesday"
+        elif calendar.weekday(dt.date.today()) == 3:
+            return "Thursday"
+        elif calendar.weekday(dt.date.today()) == 4:
+            return "Friday"
+        elif calendar.weekday(dt.date.today()) == 5:
+            return "Saturday"
+        elif calendar.weekday(dt.date.today()) == 6:
+            return "Sunday"
+
 
     def good_night(self, phrase):
         self.speak(phrase)
