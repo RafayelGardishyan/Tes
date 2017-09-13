@@ -58,17 +58,17 @@ class Assistant:
     def get_weekday(self):
         if calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 0:
             return 'Monday'
-        elif calendar.weekday(dt.date.today()) == 1:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 1:
             return 'Tuesday'
-        elif calendar.weekday(dt.date.today()) == 2:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 2:
             return "Wednesday"
-        elif calendar.weekday(dt.date.today()) == 3:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 3:
             return "Thursday"
-        elif calendar.weekday(dt.date.today()) == 4:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 4:
             return "Friday"
-        elif calendar.weekday(dt.date.today()) == 5:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 5:
             return "Saturday"
-        elif calendar.weekday(dt.date.today()) == 6:
+        elif calendar.weekday(dt.date.today().year, dt.date.today().month, dt.date.today().day) == 6:
             return "Sunday"
 
 
