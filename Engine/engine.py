@@ -53,6 +53,7 @@ class Assistant:
             'thanks': {self.speak: 'I\'m always happy to help you'},
             'ok': {self.speak: 'I\'m always happy to help you'},
             'do you play Minecraft': {self.speak: 'No, it is too dificult for me'}
+            'beatbox' : {self.speak: 'Boe, badaboem, boemboemboem, bada badaboem, doedoem boedoem.'}
         }
 
     def get_weekday(self):
