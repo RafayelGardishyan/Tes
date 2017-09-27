@@ -5,8 +5,7 @@ import datetime as dt
 from gtts import gTTS
 from playsound import playsound
 import random as r
-import pyowm
-import json
+import pyowmimport json
 import calendar
 import urllib3
 
@@ -52,7 +51,7 @@ class Assistant:
             'good night': {self.speak: 'Good night!', self.good_night: 'Alarm is set for ' + str(self.alarmtime) + ' o\'clock'},
             'thanks': {self.speak: 'I\'m always happy to help you'},
             'ok': {self.speak: 'I\'m always happy to help you'},
-            'do you play Minecraft': {self.speak: 'No, it is too dificult for me'}
+            'do you play Minecraft': {self.speak: 'No, it is too dificult for me'},
             'beatbox' : {self.speak: 'Boe, badaboem, boemboemboem, bada badaboem, doedoem boedoem.'}
         }
 
