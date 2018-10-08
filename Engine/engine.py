@@ -23,7 +23,7 @@ class Assistant:
             'hello': {self.speak: 'Hi'},
             'hi': {self.speak: 'Hello'},
             'how are you': {self.speak: r.choice(['Very well!', 'Good', 'Same as before', 'Can be better', 'Very bad', 'I am very good'])},
-            'what is your name': {self.speak: 'My name is RafAssistant'},
+            'what is your name': {self.speak: 'My name is Tes'},
             'what is your age': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
             'how old are you': {self.speak: 'I am ' + str(dt.date.today().year - 2017) + " years old."},
             'what is today\'s date': {
