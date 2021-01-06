@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.0
 bleach==2.0.0
 cairocffi==0.6
-CairoSVG==2.0.3
+CairoSVG==2.5.1
 canvasvg==1.0.5
 certifi==2017.7.27.1
 cffi==1.10.0
