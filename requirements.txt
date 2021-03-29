@@ -37,7 +37,7 @@ playsound==1.2.2
 prompt-toolkit==1.0.15
 PyAudio==0.2.11
 pycparser==2.18
-Pygments==2.2.0
+Pygments==2.7.4
 pygsr==0.1
 pyowm==2.7.1
 python-dateutil==2.6.1
