@@ -3,7 +3,7 @@ bleach==2.0.0
 cairocffi==0.6
 CairoSVG==2.0.3
 canvasvg==1.0.5
-certifi==2017.7.27.1
+certifi==2022.12.7
 cffi==1.10.0
 chardet==3.0.4
 colorama==0.3.9
